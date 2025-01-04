@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import LoadingGif from '../../assets/loading.gif'
 import s from './post.module.scss'
 import { IComment, IPost } from '../../types'

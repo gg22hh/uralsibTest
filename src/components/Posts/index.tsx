@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button, Card, CardContent } from '@mui/material';
 import s from './posts.module.scss'
 import { Link } from 'react-router-dom';
