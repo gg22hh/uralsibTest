@@ -1,12 +1,6 @@
 .posts {
   max-width: 1000px;
   margin: 0 auto;
-  &Title {
-    text-align: center;
-    margin-bottom: 15px;
-    font-size: 35px;
-    font-weight: bold;
-  }
   &List {
     display: flex;
     justify-content: space-between;

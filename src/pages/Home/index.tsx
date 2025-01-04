@@ -2,7 +2,12 @@ import React from "react";
 import Posts from "../../components/Posts";
 
 const Home = () => {
-  return <Posts />;
+  return (
+    <>
+      <h1 className='title'>Posts</h1>
+      <Posts />
+    </>
+  );
 };
 
 export default Home;

@@ -406,3 +406,21 @@ body {
   font-family: "Roboto", serif;
   font-size: 18px;
 }
+
+.loading {
+  text-align: center;
+  & img {
+    height: 100px;
+  }
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.error {
+  text-align: center;
+}

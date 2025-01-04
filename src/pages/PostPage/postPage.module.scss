@@ -1,0 +1,10 @@
+.header {
+  position: relative;
+  width: 400px;
+  margin: 0 auto;
+  & button {
+    position: absolute;
+    left: 0;
+    top: 5px;
+  }
+}

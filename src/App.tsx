@@ -1,7 +1,7 @@
 import Home from './pages/Home'
 import { Routes, Route } from 'react-router-dom'
 import PostPage from './pages/PostPage'
-import './App.css'
+import './App.scss'
 
 function App() {
 

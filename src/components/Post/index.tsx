@@ -1,31 +1,21 @@
 import React, { useEffect, useState } from 'react'
+import LoadingGif from '../../assets/loading.gif'
 import s from './post.module.scss'
+import { IComment, IPost } from '../../types'
 
 interface PostProps {
   id: string | undefined
 }
 
-interface Post {
-  id: number,
-  userId: number,
-  title: string,
-  body: string
-}
-
-interface Comment {
-  id: number,
-  postId: number,
-  name: string,
-  email: string,
-  body: string
-}
-
 const Post = ({id}: PostProps) => {
-  const [post, setPost] = useState<Post>()
-  const [comments, setComments] = useState<Comment[]>([])
+  const [post, setPost] = useState<IPost>()
+  const [comments, setComments] = useState<IComment[]>([])
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [error, setError] = useState<boolean>(false)
 
   useEffect(() => {
     const getPostAndComments = async () => {
+      setIsLoading(true)
       try {
         const responses = await Promise.all([
           fetch(`https://jsonplaceholder.typicode.com/posts/${id}`),
@@ -35,19 +25,30 @@ const Post = ({id}: PostProps) => {
         setPost(postData)
         setComments(commentsData)
       } catch (error) {
+        setError(true)
         console.log(error)
+      } finally {
+        setIsLoading(false)
       }
     }
 
     getPostAndComments()
   }, [id])
 
-  console.log(post, 'post')
-  console.log(comments, 'comments')
+  if (isLoading) {
+    return (
+      <div className='loading'><img src={LoadingGif} alt="Loading" /></div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className='error'>Error geting post</div>
+    )
+  }
 
   return (
     <div className={s.post}>
-      <h1>Post {id}</h1>
       <h2>{post?.title}</h2>
       <p>{post?.body}</p>
       <h3>Comments:</h3>
